@@ -1,10 +1,10 @@
-package com.reactpoc.springboot;
+package com.rewardpricing.chart;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ReactpocbackendApplicationTests {
+class RewardApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,31 +1,32 @@
-package com.reactpoc.springboot.model;
+package com.rewardpricing.chart.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.UpdateTimestamp;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "RewardPricingChart")
-public class RewardPricingModel {
+public class RewardPricingEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column
+	@Column(updatable = false)
 	private String category;
 	
-	@Column
+	@Column(updatable = false)
 	private String roomCategory;
 	
-	@Column
+	@Column(updatable = false)
 	private String pricingLevel;
 	
 	@Column
@@ -38,11 +39,11 @@ public class RewardPricingModel {
 	@Column(name = "updateUser")
 	private String updateUser;
 	
-	public RewardPricingModel() {
+	public RewardPricingEntity() {
 		
 	}
 
-	public RewardPricingModel(String category, String roomCategory, String pricingLevel, String points,
+	public RewardPricingEntity(String category, String roomCategory, String pricingLevel, String points,
 			Date updateDatetime, String updateUser) {
 		super();
 		this.category = category;
@@ -53,13 +54,6 @@ public class RewardPricingModel {
 		this.updateUser = updateUser;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getCategory() {
 		return category;
@@ -108,6 +102,11 @@ public class RewardPricingModel {
 	public void setUpdateUser(String updateUser) {
 		this.updateUser = updateUser;
 	}
+
+//	@Override
+//	public String toString() {
+//		return "points=" + points;
+//	}
 
 	
 }

@@ -14,16 +14,16 @@ import com.rewardpricing.chart.model.RoomCategory;
 public class RewardChartResponseMapper {
 
 	public static List<ResponseRewardChart> buildAwardChartResponse(List<RewardPricingEntity> awardChartEntities) {
-		Map<String, Map<String, Map<String, List<RewardPricingEntity>>>> map = awardChartEntities.stream()
+		Map<Integer, Map<String, Map<String, List<RewardPricingEntity>>>> map = awardChartEntities.stream()
 				.collect(Collectors.groupingBy(RewardPricingEntity::getCategory,
 						Collectors.groupingBy(RewardPricingEntity::getRoomCategory,
 								Collectors.groupingBy(RewardPricingEntity::getPricingLevel))));
 
 		List<ResponseRewardChart> responseList = new ArrayList<>();
-		for (Entry<String, Map<String, Map<String, List<RewardPricingEntity>>>> entry : map.entrySet()) {
+		for (Entry<Integer, Map<String, Map<String, List<RewardPricingEntity>>>> entry : map.entrySet()) {
 			Map<String, Map<String, List<RewardPricingEntity>>> firstChildMap = entry.getValue();
 			ResponseRewardChart awardChart = new ResponseRewardChart();
-			awardChart.setCategory(Integer.parseInt(entry.getKey()));
+			awardChart.setCategory(entry.getKey());
 			List<RoomCategory> roomCategoryList = new ArrayList<>();
 			for (Entry<String, Map<String, List<RewardPricingEntity>>> entry1 : firstChildMap.entrySet()) {
 				Map<String, List<RewardPricingEntity>> secondChildMap = entry1.getValue();

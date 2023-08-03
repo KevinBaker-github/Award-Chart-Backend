@@ -13,11 +13,11 @@ import com.rewardpricing.chart.model.RewardPricingEntity;
 public interface RewardRepository extends JpaRepository<RewardPricingEntity, Long>{
 	
 	
-	public void deleteByCategory(String category);
+	public void deleteByCategory(int category);
 	
-	public List<RewardPricingEntity> findByCategory(String category);
+	public List<RewardPricingEntity> findByCategory(int category);
 	
-	public Optional<RewardPricingEntity> findByCategoryAndRoomCategoryAndPricingLevel(String category, String roomCategory, String pricingLevel);
+	public Optional<RewardPricingEntity> findByCategoryAndRoomCategoryAndPricingLevel(int category, String roomCategory, String pricingLevel);
 	
 	
 }

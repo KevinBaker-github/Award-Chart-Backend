@@ -21,7 +21,7 @@ public class RewardPricingEntity {
 	private long id;
 	
 	@Column(updatable = false)
-	private String category;
+	private int category;
 	
 	@Column(updatable = false)
 	private String roomCategory;
@@ -43,7 +43,7 @@ public class RewardPricingEntity {
 		
 	}
 
-	public RewardPricingEntity(String category, String roomCategory, String pricingLevel, String points,
+	public RewardPricingEntity(int category, String roomCategory, String pricingLevel, String points,
 			Date updateDatetime, String updateUser) {
 		super();
 		this.category = category;
@@ -55,11 +55,11 @@ public class RewardPricingEntity {
 	}
 
 
-	public String getCategory() {
+	public int getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(int category) {
 		this.category = category;
 	}
 

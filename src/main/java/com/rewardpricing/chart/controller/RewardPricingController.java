@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rewardpricing.chart.model.DynamicPricingRequest;
+import com.rewardpricing.chart.model.DynamicPricingResponse;
 import com.rewardpricing.chart.model.ResponseRewardChart;
 import com.rewardpricing.chart.model.RewardPricingEntity;
+import com.rewardpricing.chart.service.DynamicPricingService;
 import com.rewardpricing.chart.service.RewardChartService;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -27,6 +30,8 @@ public class RewardPricingController {
 	
 	@Autowired
 	private RewardChartService rewardChartService;
+	@Autowired
+	private DynamicPricingService dynamicPricingService;
 
 	@GetMapping
 	public List<ResponseRewardChart> getAllCategories() {
@@ -35,7 +40,7 @@ public class RewardPricingController {
 	
 	@Transactional
 	@DeleteMapping("/{category}")
-	public void deleteCategory(@PathVariable("category") String category){ 
+	public void deleteCategory(@PathVariable("category") int category){ 
 		rewardChartService.deleteCategory(category);
 	}
 
@@ -46,12 +51,18 @@ public class RewardPricingController {
 	
 	
 	@GetMapping("/{category}")
-    public List<ResponseRewardChart> getCategoryById(@PathVariable  String category){
+    public List<ResponseRewardChart> getCategoryById(@PathVariable  int category){
 			return rewardChartService.findByCategory(category);
     }
 
 	@PutMapping()
 	public ResponseEntity<RewardPricingEntity> updateCategory(@RequestBody RewardPricingEntity rewardPricingModel){
 		return rewardChartService.updateCategory(rewardPricingModel);
+	}
+	
+	@PostMapping()
+	public DynamicPricingResponse getDynamicPricing(@RequestBody DynamicPricingRequest request) {
+	    return this.dynamicPricingService.getPricing(request);
+		
 	}
 }

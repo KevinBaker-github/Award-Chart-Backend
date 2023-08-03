@@ -11,12 +11,12 @@ public interface RewardChartService {
 	
 	public List<ResponseRewardChart> listAll();
 	
-	public List<ResponseRewardChart> findByCategory(String category);
+	public List<ResponseRewardChart> findByCategory(int category);
 	
 	public ResponseEntity<RewardPricingEntity> updateCategory(RewardPricingEntity request);
 	
 	public ResponseEntity<RewardPricingEntity> addCategory(RewardPricingEntity request);
 	
-	public void deleteCategory(String Category);
+	public void deleteCategory(int Category);
 	
 }

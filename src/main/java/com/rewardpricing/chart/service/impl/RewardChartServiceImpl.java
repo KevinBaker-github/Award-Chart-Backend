@@ -30,11 +30,6 @@ public class RewardChartServiceImpl implements RewardChartService {
 	}
 
 	@Override
-	public void deleteCategory(String category) {
-		this.repository.deleteByCategory(category);
-	}
-
-	@Override
 	public ResponseEntity<RewardPricingEntity> addCategory(RewardPricingEntity request) {
 		System.out.println(request.toString());
 		Optional<RewardPricingEntity> existingEntity = this.repository.findByCategoryAndRoomCategoryAndPricingLevel(
@@ -63,13 +58,19 @@ public class RewardChartServiceImpl implements RewardChartService {
 	}
 
 	@Override
-	public List<ResponseRewardChart> findByCategory(String category) {
+	public List<ResponseRewardChart> findByCategory(int category) {
 		List<RewardPricingEntity> entitiesList = this.repository.findByCategory(category);
 		List<ResponseRewardChart> response = new ArrayList<>();
 		if (entitiesList != null && entitiesList.size() > 0) {
 			response = RewardChartResponseMapper.buildAwardChartResponse(entitiesList);
 		}
 		return response;
+	}
+
+	@Override
+	public void deleteCategory(int category) {
+		this.repository.deleteByCategory(category);
+		
 	}
 
 }

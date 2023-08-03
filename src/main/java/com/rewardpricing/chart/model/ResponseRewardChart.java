@@ -2,16 +2,16 @@ package com.rewardpricing.chart.model;
 
 import java.util.List;
 
-public class ResponseAwardChart {
+public class ResponseRewardChart {
 	
 	private int category;
 	private List<RoomCategory> roomCategories;
 	 
-	public ResponseAwardChart() {
+	public ResponseRewardChart() {
 		
 	}
 
-	public ResponseAwardChart(int category, List<RoomCategory> roomCategories) {
+	public ResponseRewardChart(int category, List<RoomCategory> roomCategories) {
 		super();
 		this.category = category;
 		this.roomCategories = roomCategories;

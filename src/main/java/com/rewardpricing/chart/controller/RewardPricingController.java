@@ -60,7 +60,7 @@ public class RewardPricingController {
 		return rewardChartService.updateCategory(rewardPricingModel);
 	}
 	
-	@PostMapping()
+	@PostMapping("/dynamicpricing")
 	public DynamicPricingResponse getDynamicPricing(@RequestBody DynamicPricingRequest request) {
 	    return this.dynamicPricingService.getPricing(request);
 		

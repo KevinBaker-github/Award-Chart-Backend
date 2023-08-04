@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.rewardpricing.chart.model.DynamicPricingRequest;
 import com.rewardpricing.chart.model.DynamicPricingResponse;
@@ -12,6 +13,7 @@ import com.rewardpricing.chart.model.RewardPricingEntity;
 import com.rewardpricing.chart.repository.RewardRepository;
 import com.rewardpricing.chart.service.DynamicPricingService;
 
+@Service
 public class DynamicPricingServiceImpl implements DynamicPricingService{
 	
 	
@@ -40,10 +42,11 @@ public class DynamicPricingServiceImpl implements DynamicPricingService{
 			floatingPointLevel = floatingPointLevel.setScale(2, RoundingMode.HALF_UP);
 			
 			if (floatingPointLevel.compareTo(points) == 1) {
-	            //System.out.println(b1 + " is greater than " + b2 + ".");
+	            //floatingPointLevel is greater than points
 			}
 			else {
 				if(request.getForecastedOccupancy().compareTo(request.getRewardSaverOccupancy()) == 1) {
+					////ForecastedOccupancy is greater than RewardSaverOccupancy
 					response.setPricing(points);
 				}
 			}

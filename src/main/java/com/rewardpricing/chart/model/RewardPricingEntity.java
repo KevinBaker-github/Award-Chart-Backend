@@ -30,7 +30,7 @@ public class RewardPricingEntity {
 	private String pricingLevel;
 	
 	@Column
-	private String points;
+	private double points;
 	
 	@UpdateTimestamp
 	@Column(name="updateDatetime", nullable=false)
@@ -43,7 +43,7 @@ public class RewardPricingEntity {
 		
 	}
 
-	public RewardPricingEntity(int category, String roomCategory, String pricingLevel, String points,
+	public RewardPricingEntity(int category, String roomCategory, String pricingLevel, double points,
 			Date updateDatetime, String updateUser) {
 		super();
 		this.category = category;
@@ -79,11 +79,11 @@ public class RewardPricingEntity {
 		this.pricingLevel = pricingLevel;
 	}
 
-	public String getPoints() {
+	public double getPoints() {
 		return points;
 	}
 
-	public void setPoints(String points) {
+	public void setPoints(double points) {
 		this.points = points;
 	}
 

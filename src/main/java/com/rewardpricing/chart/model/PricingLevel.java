@@ -3,12 +3,12 @@ package com.rewardpricing.chart.model;
 public class PricingLevel {
 
 	private String pricingLevel;
-	private String points;
+	private double points;
 	
 	public PricingLevel() {
 		
 	}
-	public PricingLevel(String pricingLevel, String points) {
+	public PricingLevel(String pricingLevel, double points) {
 		super();
 		this.pricingLevel = pricingLevel;
 		this.points = points;
@@ -22,11 +22,11 @@ public class PricingLevel {
 		this.pricingLevel = pricingLevel;
 	}
 
-	public String getPoints() {
+	public double getPoints() {
 		return points;
 	}
 
-	public void setPoints(String points) {
+	public void setPoints(double points) {
 		this.points = points;
 	}
 	

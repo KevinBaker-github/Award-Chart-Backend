@@ -6,22 +6,22 @@ public class DynamicPricingRequest {
 	
 	private int category;
 	private String roomCategory;
-	private String pricingLevel;
-	private BigDecimal forecastedBar;
-	private BigDecimal forecastedOccupancy;
-	private BigDecimal rewardSaverOccupancy;
-	private BigDecimal propertyValue;
+	//private String pricingLevel;
+	//private String roomType;
+	private double forecastedBar;
+	private double forecastedOccupancy;
+	private double rewardSaverOccupancy;
+	private double propertyValue;
 	
 	public DynamicPricingRequest() {
 		
 	}
 	
-	public DynamicPricingRequest(int category, String roomCategory, String pricingLevel, BigDecimal forecastedBar, BigDecimal forecastedOccupancy, BigDecimal rewardSaverOccupancy,
-			BigDecimal propertyValue) {
+	public DynamicPricingRequest(int category, String roomCategory, double forecastedBar, double forecastedOccupancy, double rewardSaverOccupancy,
+			double propertyValue) {
 		super();
 		this.category = category;
-		this.setRoomCategory(roomCategory);
-		this.setPricingLevel(pricingLevel);
+		this.roomCategory = roomCategory;
 		this.forecastedBar = forecastedBar;
 		this.forecastedOccupancy = forecastedOccupancy;
 		this.rewardSaverOccupancy = rewardSaverOccupancy;
@@ -34,37 +34,29 @@ public class DynamicPricingRequest {
 	public void setCategory(int category) {
 		this.category = category;
 	}
-	public BigDecimal getForecastedBar() {
+	public double getForecastedBar() {
 		return forecastedBar;
 	}
-	public void setForecastedBar(BigDecimal forecastedBar) {
+	public void setForecastedBar(double forecastedBar) {
 		this.forecastedBar = forecastedBar;
 	}
-	public BigDecimal getForecastedOccupancy() {
+	public double getForecastedOccupancy() {
 		return forecastedOccupancy;
 	}
-	public void setForecastedOccupancy(BigDecimal forecastedOccupancy) {
+	public void setForecastedOccupancy(double forecastedOccupancy) {
 		this.forecastedOccupancy = forecastedOccupancy;
 	}
-	public BigDecimal getRewardSaverOccupancy() {
+	public double getRewardSaverOccupancy() {
 		return rewardSaverOccupancy;
 	}
-	public void setRewardSaverOccupancy(BigDecimal rewardSaverOccupancy) {
+	public void setRewardSaverOccupancy(double rewardSaverOccupancy) {
 		this.rewardSaverOccupancy = rewardSaverOccupancy;
 	}
-	public BigDecimal getPropertyValue() {
+	public double getPropertyValue() {
 		return propertyValue;
 	}
-	public void setPropertyValue(BigDecimal propertyValue) {
+	public void setPropertyValue(double propertyValue) {
 		this.propertyValue = propertyValue;
-	}
-
-	public String getPricingLevel() {
-		return pricingLevel;
-	}
-
-	public void setPricingLevel(String pricingLevel) {
-		this.pricingLevel = pricingLevel;
 	}
 
 	public String getRoomCategory() {

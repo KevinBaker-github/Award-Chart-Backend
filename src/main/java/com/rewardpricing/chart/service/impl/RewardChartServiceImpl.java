@@ -35,7 +35,7 @@ public class RewardChartServiceImpl implements RewardChartService {
 		Optional<RewardPricingEntity> existingEntity = this.repository.findByCategoryAndRoomCategoryAndPricingLevel(
 				request.getCategory(), request.getRoomCategory(), request.getPricingLevel());
 		if (existingEntity.isPresent()) {
-			return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		} else {
 			return new ResponseEntity<>(this.repository.save(request), HttpStatus.CREATED);
 		}

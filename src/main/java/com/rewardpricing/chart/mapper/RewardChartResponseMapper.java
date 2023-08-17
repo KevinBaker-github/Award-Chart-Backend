@@ -1,14 +1,13 @@
-package com.rewardpricing.chart.reponse;
+package com.rewardpricing.chart.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
-
+import com.rewardpricing.chart.entity.RewardPricingEntity;
 import com.rewardpricing.chart.model.PricingLevel;
 import com.rewardpricing.chart.model.ResponseRewardChart;
-import com.rewardpricing.chart.model.RewardPricingEntity;
 import com.rewardpricing.chart.model.RoomCategory;
 
 public class RewardChartResponseMapper {

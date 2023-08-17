@@ -1,33 +1,17 @@
 package com.rewardpricing.chart.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class PricingLevel {
 
-	private String pricingLevel;
-	private double points;
-	
-	public PricingLevel() {
-		
-	}
-	public PricingLevel(String pricingLevel, double points) {
-		super();
-		this.pricingLevel = pricingLevel;
-		this.points = points;
-	}
+  private String pricingLevel;
+  private double points;
 
-	public String getPricingLevel() {
-		return pricingLevel;
-	}
-
-	public void setPricingLevel(String pricingLevel) {
-		this.pricingLevel = pricingLevel;
-	}
-
-	public double getPoints() {
-		return points;
-	}
-
-	public void setPoints(double points) {
-		this.points = points;
-	}
-	
 }

@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.rewardpricing.chart.model.DynamicPricingRequest;
-import com.rewardpricing.chart.model.DynamicPricingResponse;
+import com.rewardpricing.chart.dto.DynamicPricingRequest;
+import com.rewardpricing.chart.dto.DynamicPricingResponse;
+import com.rewardpricing.chart.entity.RewardPricingEntity;
 import com.rewardpricing.chart.model.ResponseRewardChart;
-import com.rewardpricing.chart.model.RewardPricingEntity;
 import com.rewardpricing.chart.service.DynamicPricingService;
 import com.rewardpricing.chart.service.RewardChartService;
 

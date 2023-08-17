@@ -1,4 +1,4 @@
-package com.rewardpricing.chart.model;
+package com.rewardpricing.chart.dto;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -6,13 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
 @Setter
-public class RoomCategory {
-
-  private String name;
-  private List<PricingLevel> pricingLevels;
-
+@Getter
+public class AwardChartCsvRequestDto {
+  
+  private List<Integer> categories;
+  
 }

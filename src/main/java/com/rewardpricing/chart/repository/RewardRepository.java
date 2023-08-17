@@ -19,5 +19,7 @@ public interface RewardRepository extends JpaRepository<RewardPricingEntity, Lon
 
   public Optional<RewardPricingEntity> findByCategoryAndPricingLevel(int category,
       String pricingLevel);
+  
+  public List<RewardPricingEntity> findByCategoryIn(List<Integer> categories);
 
 }

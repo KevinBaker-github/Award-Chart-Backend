@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class AwardChartCsvRequestDto {
+public class AwardChartExportRequestDto {
   
   private List<Integer> categories;
   

@@ -32,13 +32,13 @@ public class RewardApplication implements CommandLineRunner {
     repository.save(new RewardPricingEntity(2, "Premium", "Premium", 10000, null, "neelima"));
     repository.save(new RewardPricingEntity(2, "Premium", "PremiumPeak", 20000, null, "neelima"));
 
-    repository.save(new RewardPricingEntity(3, "Standard", "Standard", 30000, null, "neelima"));
+    repository.save(new RewardPricingEntity(3, "Standard", "RewardSaver", 30000, null, "neelima"));
     repository.save(new RewardPricingEntity(3, "Standard", "Standard", 10000, null, "neelima"));
     repository.save(new RewardPricingEntity(3, "Standard", "BasePeak", 50000, null, "neelima"));
     repository.save(new RewardPricingEntity(3, "Premium", "Premium", 87000, null, "neelima"));
     repository.save(new RewardPricingEntity(3, "Premium", "PremiumPeak", 98000, null, "neelima"));
 
-    repository.save(new RewardPricingEntity(4, "Standard", "Standard", 20000, null, "neelima"));
+    repository.save(new RewardPricingEntity(4, "Standard", "RewardSaver", 20000, null, "neelima"));
     repository.save(new RewardPricingEntity(4, "Standard", "Standard", 20000, null, "neelima"));
     repository.save(new RewardPricingEntity(4, "Standard", "BasePeak", 30000, null, "neelima"));
     repository.save(new RewardPricingEntity(4, "Premium", "Premium", 67000, null, "neelima"));

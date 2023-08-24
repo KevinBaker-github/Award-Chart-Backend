@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.rewardpricing.chart.dto.AwardChartExportRequestDto;
 import com.rewardpricing.chart.dto.ResourceResponseDto;
+import com.rewardpricing.chart.service.CsvReportGeneratorService;
 import com.rewardpricing.chart.service.ExcelReportGeneratorService;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -22,15 +23,32 @@ public class ExportsController {
   
   @Qualifier("awardChartExcelPoiService")
   @Autowired
-  private ExcelReportGeneratorService<AwardChartExportRequestDto, ResourceResponseDto> generator;
+  private ExcelReportGeneratorService<AwardChartExportRequestDto, ResourceResponseDto> excelGenerator;
+  
+  @Qualifier("awardChartCommonCsvService")
+  @Autowired
+  private CsvReportGeneratorService<AwardChartExportRequestDto, ResourceResponseDto> csvGenerator;
 
   @PostMapping("/awardChart/poi/excel")
   public ResponseEntity<Resource> generateAwardChartPoiExcel(
       @RequestBody AwardChartExportRequestDto request) {
-    ResourceResponseDto resource = generator.generateExcel(request);
+    ResourceResponseDto resource = excelGenerator.generateExcel(request);
 
     HttpHeaders headers = new HttpHeaders();
     String filename = "award-charts-" + UUID.randomUUID().toString() + ".xlsx";
+    headers.add("Content-Disposition", "attachment; filename=" + filename);
+
+    return ResponseEntity.ok().contentType(resource.getMediaType()).headers(headers)
+        .body(resource.getResource());
+  }
+  
+  @PostMapping("/awardChart/common/csv")
+  public ResponseEntity<Resource> generateAwardChartCommonCsv(
+      @RequestBody AwardChartExportRequestDto request) {
+    ResourceResponseDto resource = csvGenerator.generateCsv(request);
+
+    HttpHeaders headers = new HttpHeaders();
+    String filename = "award-charts-" + UUID.randomUUID().toString() + ".csv";
     headers.add("Content-Disposition", "attachment; filename=" + filename);
 
     return ResponseEntity.ok().contentType(resource.getMediaType()).headers(headers)

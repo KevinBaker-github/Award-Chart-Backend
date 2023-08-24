@@ -15,7 +15,7 @@ import com.rewardpricing.chart.repository.RewardRepository;
 import com.rewardpricing.chart.service.ExcelReportGeneratorService;
 
 @Service("awardChartExcelPoiService")
-public class AwardChartReportServiceImpl
+public class AwardChartExcelReportServiceImpl
     implements ExcelReportGeneratorService<AwardChartExportRequestDto, ResourceResponseDto> {
 
   @Autowired
@@ -32,7 +32,7 @@ public class AwardChartReportServiceImpl
     List<RewardPricingEntity> entities = repository.findByCategoryIn(dto.getCategories());
     List<RewardChartReportItem> filteredByCategories = mapper.mapFromRewardChartEntitiesToReportItems(entities);
     
-    Resource resource = exporter.exportCsv(filteredByCategories);
+    Resource resource = exporter.exportExcel(filteredByCategories);
     return ResourceResponseDto.builder()
         .resource(resource)
         .mediaType(MediaType

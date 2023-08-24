@@ -22,7 +22,7 @@ import com.rewardpricing.chart.model.reports.RewardChartReportItem;
 @Component
 public class AwardChartExcelPoiExporter {
 
-  public Resource exportCsv(List<RewardChartReportItem> data) {
+  public Resource exportExcel(List<RewardChartReportItem> data) {
     Workbook workbook = new XSSFWorkbook();
     Sheet sheet = workbook.createSheet("AWARD-CHARTS");
     

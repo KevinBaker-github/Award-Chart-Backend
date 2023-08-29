@@ -32,6 +32,7 @@ public class PropertyConfigCsvImporterImpl
 
   @Override
   public FileUploadResponseDto importCsv(MultipartFile file) {
+    System.out.println("Imporing Csv...");
     if (!validator.hasCSVFormat(file)) {
       throw new InvalidFileTypeException("CSV files accepted only.");
     }
